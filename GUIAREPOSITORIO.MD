@@ -1,4 +1,4 @@
-# Guía de trabajo con Git y GitHub — La Placita
+# Guía de trabajo con Git y GitHub — La Placita.
 
 Esta guía explica el flujo de trabajo del repositorio desde cero. Está pensada para quienes están empezando a utilizar Git.
 
