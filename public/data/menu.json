@@ -1,0 +1,12 @@
+[
+  {
+    "id": "desayuno-chapin",
+    "nombre": "Desayuno chapín",
+    "categoria": "desayunos",
+    "precio": 30,
+    "descripcion": "Huevos, frijoles, plátano y tortillas.",
+    "foto": "/images/menu/desayuno-chapin.webp",
+    "alt": "Plato con huevos, frijoles volteados y plátano frito",
+    "disponible": true
+  }
+]
