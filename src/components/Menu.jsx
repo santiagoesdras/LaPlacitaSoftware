@@ -67,12 +67,14 @@ export default function Menu() {
         {/* Filtros generados automáticamente desde las categorías del menú */}
         <div
           className="filtros-menu"
+          role="group"
           aria-label="Filtrar menú por categoría"
         >
           {categorias.map((cat) => (
             <button
               type="button"
               key={cat}
+              aria-pressed={categoria === cat}
               onClick={() => setCategoria(cat)}
             >
               {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -97,6 +99,10 @@ export default function Menu() {
         {/* Zona C: datos */}
         {!cargando && !error && (
           <>
+            <p className="menu-resumen" role="status">
+              Mostrando {platosFiltrados.length} platos.
+            </p>
+
             {platosFiltrados.length > 0 ? (
               <div className="menu-grid">
 

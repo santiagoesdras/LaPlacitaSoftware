@@ -692,3 +692,39 @@ h3 {
   color: var(--color-muted);
   font-size: 0.925rem;
 }
+
+/* Filtro activo y resumen del menú */
+
+.filtros-menu button[aria-pressed="true"] {
+  background: var(--color-accent);
+  color: #FFFFFF;
+  border-color: var(--color-accent);
+}
+
+.menu-resumen {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.925rem;
+}
+
+/* Imagen del hero */
+
+.hero__grid {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 48rem) {
+  .hero__grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.hero__imagen {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px -12px rgba(35, 32, 29, 0.35);
+}
