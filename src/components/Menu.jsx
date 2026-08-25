@@ -61,10 +61,12 @@ export default function Menu() {
         {/* Filtros por categoría */}
         <div
           className="filtros-menu"
+          role="group"
           aria-label="Filtrar menú por categoría"
         >
           <button
             type="button"
+            aria-pressed={categoria === "todos"}
             onClick={() => setCategoria("todos")}
           >
             Todos
@@ -72,6 +74,7 @@ export default function Menu() {
 
           <button
             type="button"
+            aria-pressed={categoria === "desayunos"}
             onClick={() => setCategoria("desayunos")}
           >
             Desayunos
@@ -79,6 +82,7 @@ export default function Menu() {
 
           <button
             type="button"
+            aria-pressed={categoria === "almuerzos"}
             onClick={() => setCategoria("almuerzos")}
           >
             Almuerzos
@@ -86,6 +90,7 @@ export default function Menu() {
 
           <button
             type="button"
+            aria-pressed={categoria === "bebidas"}
             onClick={() => setCategoria("bebidas")}
           >
             Bebidas
@@ -109,6 +114,10 @@ export default function Menu() {
         {/* Zona C: datos */}
         {!cargando && !error && (
           <>
+            <p className="menu-resumen" role="status">
+              Mostrando {platosFiltrados.length} platos.
+            </p>
+
             {platosFiltrados.length > 0 ? (
               <div className="menu-grid">
 
