@@ -1,8 +1,13 @@
+import { AuthProvider } from './components/AuthProvider.jsx'
 import Contacto from './components/Contacto.jsx'
 import Menu from './components/Menu.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
+import Admin from './pages/Admin.jsx'
+import AdminCategories from './pages/AdminCategories.jsx'
+import AdminProducts from './pages/AdminProducts.jsx'
+import Login from './pages/Login.jsx'
 
-// App compone la página. Cada funcionalidad vive en su propio componente.
-export default function App() {
+function LandingPage() {
   return (
     <>
       <a className="skip-link" href="#contenido-principal">
@@ -66,5 +71,26 @@ export default function App() {
         </div>
       </footer>
     </>
+  )
+}
+
+function AdminRoute({ children }) {
+  return <ProtectedRoute>{children}</ProtectedRoute>
+}
+
+export default function App() {
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/'
+  const pages = {
+    '/': <LandingPage />,
+    '/admin/login': <Login />,
+    '/admin': <AdminRoute><Admin /></AdminRoute>,
+    '/admin/productos': <AdminRoute><AdminProducts /></AdminRoute>,
+    '/admin/categorias': <AdminRoute><AdminCategories /></AdminRoute>,
+  }
+
+  return (
+    <AuthProvider>
+      {pages[pathname] ?? <LandingPage />}
+    </AuthProvider>
   )
 }
