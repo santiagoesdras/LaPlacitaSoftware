@@ -32,7 +32,13 @@ export default function Menu() {
       });
   }, []);
 
-  // Filtrar platos según la categoría seleccionada
+  // Obtener automáticamente las categorías que existen en el menú
+  const categorias = [
+    "todos",
+    ...new Set(platos.map((plato) => plato.categoria)),
+  ];
+
+  // Filtrar los platos según la categoría seleccionada
   const platosFiltrados =
     categoria === "todos"
       ? platos
@@ -58,43 +64,22 @@ export default function Menu() {
           </p>
         </header>
 
-        {/* Filtros por categoría */}
+        {/* Filtros generados automáticamente desde las categorías del menú */}
         <div
           className="filtros-menu"
           role="group"
           aria-label="Filtrar menú por categoría"
         >
-          <button
-            type="button"
-            aria-pressed={categoria === "todos"}
-            onClick={() => setCategoria("todos")}
-          >
-            Todos
-          </button>
-
-          <button
-            type="button"
-            aria-pressed={categoria === "desayunos"}
-            onClick={() => setCategoria("desayunos")}
-          >
-            Desayunos
-          </button>
-
-          <button
-            type="button"
-            aria-pressed={categoria === "almuerzos"}
-            onClick={() => setCategoria("almuerzos")}
-          >
-            Almuerzos
-          </button>
-
-          <button
-            type="button"
-            aria-pressed={categoria === "bebidas"}
-            onClick={() => setCategoria("bebidas")}
-          >
-            Bebidas
-          </button>
+          {categorias.map((cat) => (
+            <button
+              type="button"
+              key={cat}
+              aria-pressed={categoria === cat}
+              onClick={() => setCategoria(cat)}
+            >
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
         </div>
 
         {/* Zona C: cargando */}
