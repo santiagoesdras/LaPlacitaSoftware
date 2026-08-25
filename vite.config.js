@@ -1,7 +1,6 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vite'
 
-// Configuración de Vite para React y del entorno de pruebas del proyecto.
 export default defineConfig({
   plugins: [react()],
   server: {
@@ -10,7 +9,5 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: './src/test/setup.js',
-    css: true,
   },
 })
