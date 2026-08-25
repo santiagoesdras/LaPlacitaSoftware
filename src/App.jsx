@@ -26,23 +26,33 @@ export default function App() {
       </header>
 
       <main id="contenido-principal">
-<section id="inicio" className="section hero" aria-labelledby="titulo-principal">
-          <div className="container flow">
-            <p className="eyebrow">Comedor La Placita</p>
-            <h1 id="titulo-principal">Comida chapina de casa, servida como en casa</h1>
-            <p className="lead">
-              Desayunos desde las 6 de la mañana, almuerzo del día y refacciones.
-              Mirá el menú actualizado y apartá tu mesa en un minuto.
-            </p>
+        <section id="inicio" className="section hero" aria-labelledby="titulo-principal">
+          <div className="container hero__grid">
+            <div className="flow">
+              <p className="eyebrow">Comedor La Placita</p>
+              <h1 id="titulo-principal">Comida chapina de casa, servida como en casa</h1>
+              <p className="lead">
+                Desayunos desde las 6 de la mañana, almuerzo del día y refacciones.
+                Mirá el menú actualizado y apartá tu mesa en un minuto.
+              </p>
 
-            <div className="hero-acciones">
-              <a className="boton boton--primario" href="#menu">Ver el menú</a>
-              <a className="boton boton--secundario" href="#contacto">Reservar mesa</a>
+              <div className="hero-acciones">
+                <a className="boton boton--primario" href="#menu">Ver el menú</a>
+                <a className="boton boton--secundario" href="#contacto">Reservar mesa</a>
+              </div>
+
+              <p className="hero-dato">
+                Abierto de lunes a sábado, de 6:00 a. m. a 7:00 p. m.
+              </p>
             </div>
 
-            <p className="hero-dato">
-              Abierto de lunes a sábado, de 6:00 a. m. a 7:00 p. m.
-            </p>
+            <img
+              className="hero__imagen"
+              src="/images/menu/desayuno-chapin.jpg"
+              alt=""
+              width="800"
+              height="600"
+            />
           </div>
         </section>
 
