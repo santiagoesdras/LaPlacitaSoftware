@@ -1,50 +1,47 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 export function useMenu() {
   const [platos, setPlatos] = useState([]);
-  const [categoria, setCategoria] = useState("todos");
+  const [categoria, setCategoria] = useState("todas");
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let cancelado = false;
-
-    setCargando(true);
-    setError(null);
-
     fetch("/data/menu.json")
-      .then((respuesta) => {
-        if (!respuesta.ok) {
-          throw new Error(`Respuesta no válida: ${respuesta.status}`);
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(
+            "No pudimos cargar el menú en este momento. Por favor recarga la página o contáctanos directamente."
+          );
         }
-        return respuesta.json();
+        return res.json();
       })
-      .then((datos) => {
-        if (!cancelado) {
-          setPlatos(datos);
-          setCargando(false);
-        }
+      .then((data) => {
+        setPlatos(data);
+        setCargando(false);
       })
       .catch((err) => {
-        // Detalle técnico: solo para la consola, nunca para el usuario.
-        console.error("Error al cargar el menú:", err);
-
-        if (!cancelado) {
-          // Mensaje humano: esto es lo que ve Don Chente.
-          setError("No pudimos cargar el menú en este momento. Por favor recarga la página o contáctanos directamente.");
-          setCargando(false);
-        }
+        setError(err.message);
+        setCargando(false);
       });
-
-    return () => {
-      cancelado = true;
-    };
   }, []);
 
+  const categoriasDisponibles = [
+    "todas",
+    ...new Set(platos.map((plato) => plato.categoria).filter(Boolean)),
+  ];
+
   const platosFiltrados =
-    categoria === "todos"
+    categoria === "todas"
       ? platos
       : platos.filter((plato) => plato.categoria === categoria);
 
-  return { platosFiltrados, categoria, setCategoria, cargando, error };
+  return {
+    platosFiltrados,
+    categoria,
+    setCategoria,
+    cargando,
+    error,
+    categoriasDisponibles,
+  };
 }
