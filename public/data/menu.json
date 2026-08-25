@@ -5,8 +5,58 @@
     "categoria": "desayunos",
     "precio": 30,
     "descripcion": "Huevos, frijoles, plátano y tortillas.",
-    "foto": "/images/menu/desayuno-chapin.webp",
+    "foto": "/images/menu/desayuno-chapin.jpg",
     "alt": "Plato con huevos, frijoles volteados y plátano frito",
+    "disponible": true
+  },
+  {
+    "id": "panqueques",
+    "nombre": "Panqueques con fruta",
+    "categoria": "desayunos",
+    "precio": 28,
+    "descripcion": "Panqueques acompañados de fruta fresca y miel.",
+    "foto": "/images/menu/panqueques.jpg",
+    "alt": "Panqueques acompañados de fruta fresca",
+    "disponible": true
+  },
+  {
+    "id": "pollo-plancha",
+    "nombre": "Pollo a la plancha",
+    "categoria": "almuerzos",
+    "precio": 45,
+    "descripcion": "Pechuga de pollo acompañada de arroz y ensalada.",
+    "foto": "/images/menu/pollo-plancha.jpg",
+    "alt": "Pollo a la plancha acompañado de arroz y ensalada",
+    "disponible": true
+  },
+  {
+    "id": "hamburguesa-placita",
+    "nombre": "Hamburguesa La Placita",
+    "categoria": "almuerzos",
+    "precio": 42,
+    "descripcion": "Hamburguesa de la casa acompañada de papas fritas.",
+    "foto": "/images/menu/hamburguesa-placita.jpg",
+    "alt": "Hamburguesa de la casa acompañada de papas fritas",
+    "disponible": true
+  },
+  {
+    "id": "limonada",
+    "nombre": "Limonada natural",
+    "categoria": "bebidas",
+    "precio": 15,
+    "descripcion": "Limonada natural preparada al momento.",
+    "foto": "/images/menu/limonada.jpg",
+    "alt": "Vaso de limonada natural",
+    "disponible": true
+  },
+  {
+    "id": "cafe",
+    "nombre": "Café de la casa",
+    "categoria": "bebidas",
+    "precio": 12,
+    "descripcion": "Café caliente preparado al momento.",
+    "foto": "/images/menu/cafe.jpg",
+    "alt": "Taza de café caliente",
     "disponible": true
   }
 ]
